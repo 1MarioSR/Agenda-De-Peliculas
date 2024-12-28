@@ -1,47 +1,49 @@
+#En Esta Parte Del Codigo Se Realiza La Parte Fronted De La Aplicacion
+
 import tkinter as tk
 from tkinter import ttk
 from model.pelicula_dao import *
 
-
-
+#Barra De Menu
 def barra_menu(root):
     barra_menu = tk.Menu(root)
     root.config(menu = barra_menu, width = 300, height = 300)
     
-    menu_inicio = tk.Menu(barra_menu, tearoff = 0 )
-    barra_menu.add_cascade(label = "Inicio", menu = menu_inicio)
+    menu_inicio = tk.Menu(barra_menu, tearoff = 0) 
+    barra_menu.add_cascade(label = "Inicio",  menu = menu_inicio)
     
-    menu_inicio.add_command(label = "Crear Registro", command = crear_tabla)
-    menu_inicio.add_command(label = "Eliminar Registro", command = borrar_tabla)
-    menu_inicio.add_command(label = "Actualizar Registro")
+    menu_inicio.add_command(label = "Crear Tabla", command = crear_tabla)
+    menu_inicio.add_command(label = "Eliminar Tabla", command = borrar_tabla)
     menu_inicio.add_command(label = "Salir", command = exit)
     
     menu_consultas = tk.Menu(barra_menu, tearoff = 0)
     barra_menu.add_cascade(label = "Consultas", menu = menu_consultas)
     
-    menu_consultas.add_command(label = "Listar Registros")
-    menu_consultas.add_command(label = "Exportar Registros")
-    menu_consultas.add_command(label = "Estadisticas")
+    menu_consultas.add_command(label = "Listar Registros", command = listar_registro)
+    menu_consultas.add_command(label = "Exportar Registros", command = exportar_registro)
+    
+    menu_estadisticas = tk.Menu(barra_menu, tearoff = 0)
+    barra_menu.add_cascade(label = "Estadisticas", menu = menu_estadisticas)
+    
+    menu_estadisticas.add_command(label = "Películas Por Género", command = peliculas_por_genero)
+    menu_estadisticas.add_command(label = "Duración Promedio De Las Películas", command = duracion_promedio)
+    menu_estadisticas.add_command(label = "Cantidad Total De Películas", command = total_peliculas)    
+        
     
     menu_ayuda = tk.Menu(barra_menu, tearoff = 0)
     barra_menu.add_cascade(label = "Ayuda", menu = menu_ayuda)
     
-    menu_ayuda.add_command(label = "Manual")
-    menu_ayuda.add_command(label = "Contacto")
-    
-    
-    
-
-    
-
+    menu_ayuda.add_command(label = "Manual", command = manual)
+    menu_ayuda.add_command(label = "Contacto", command = contacto)
+      
+#Frame De La Aplicacion Y Funciones Para Crear, Editar, Eliminar Y Listar Los Registros
 class Frame(tk.Frame):
     def __init__(self, root = None):
         super().__init__(root, width = 480, height = 320,)
         self.root = root
         self.pack()
         self.id_pelicula = None
-        #(Acordar tocar despues)
-        #self.config( bg = "blue")
+       
         
         
         self.campos_pelicula()
@@ -119,7 +121,7 @@ class Frame(tk.Frame):
             self.mi_genero.get()
         )
         
-        #####################################
+       
         if self.id_pelicula == None:
            guardar(pelicula)
         else:
@@ -160,7 +162,7 @@ class Frame(tk.Frame):
         self.boton_eliminar.config(width = 20, cursor = "hand2", activebackground = "#F76C6D", font = ("Arial", 12, "bold"), fg = "white", bg = "#E4080A")
         self.boton_eliminar.grid(row = 5, column = 1,  padx = 10, pady = 10)
             
-   ######################################################     
+     
     def editar_datos(self):
         try: 
             self.id_pelicula = self.tabla.item(self.tabla.selection())["text"]

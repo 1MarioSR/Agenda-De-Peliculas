@@ -1,3 +1,5 @@
+#En Esta Parte Del Codigo Se Realiza La Conexion Con La Base De Datos
+
 import sqlite3
 
 class ConexionDB:
