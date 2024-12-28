@@ -20,7 +20,7 @@ Este proyecto es una aplicación de escritorio para gestionar un catálogo de pe
 
 1. Clona este repositorio en tu máquina local.
    ```bash
-   git clone https://github.com/tu_usuario/agenda-de-peliculas.git
+   git clone https://github.com/K1lluaZK/agenda-de-peliculas.git
 
 2. Navega al directorio del proyecto.
 
