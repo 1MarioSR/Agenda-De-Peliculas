@@ -43,4 +43,5 @@ Licencia
 Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
 
 
-Este `README.md` proporciona una descripción general del proyecto, sus características, requisitos, instrucciones de instalación y uso, así como información sobre la estructura del proyecto y cómo contribuir.
+![image](https://github.com/user-attachments/assets/0b8d269b-7fcf-4d8b-b859-b82501eb3fea)
+
